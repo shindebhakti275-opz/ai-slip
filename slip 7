@@ -4,29 +4,31 @@ Name, Department and Salary. Display the employees who satisfy all the
 following conditions: Department = ‘IT’, Salary > 50000, and Employee Name 
 contains the letter ‘a’.                                                      
 Program:  
-import pandas as pd 
-# Create employee DataFrame 
-data = { 
-[10 marks] 
-'Employee Name': ['Rahul', 'Amit', 'Sneha', 
-'Karan', 'Priya', 'Rohan'], 
-'Department': ['IT', 'HR', 'IT', 'IT', 'Finance', 
-'IT'], 
-'Salary': [60000, 55000, 48000, 75000, 65000, 
-52000] 
-} 
-df = pd.DataFrame(data) 
-print("Employee Data:") 
-print(df) 
-# Apply all conditions 
-result = df[ 
-(df['Department'] == 'IT') & 
-(df['Salary'] > 50000) & 
-(df['Employee Name'].str.contains('a', 
-case=False)) 
-] 
-print("\nEmployees satisfying all conditions:") 
-print(result) 
+
+import pandas as pd
+
+data = {
+    'Employee Name': ['Rahul', 'Amit', 'Sneha', 'Karan', 'Priya', 'Rohan'],
+    'Department': ['IT', 'HR', 'IT', 'IT', 'Finance', 'IT'],
+    'Salary': [60000, 55000, 48000, 75000, 65000, 52000]
+}
+
+df = pd.DataFrame(data)
+
+print("Employee Data:")
+print(df)
+
+result = df[
+    (df['Department'] == 'IT') &
+    (df['Salary'] > 50000) &
+    (df['Employee Name'].str.contains('a', case=False))
+]
+
+print("\nEmployees satisfying all conditions:")
+print(result)
+
+
+
 Sample Output 
 Employee Data: 
 Employee Name Department  Salary 
@@ -45,35 +47,41 @@ Employee Name Department  Salary
 Q2) B.Write a python program to implement Breadth First Search (BFS) for 
 graph traversal. Display the traversal order starting from a given source vertex. 
 Program 
-from collections import deque 
-# Graph represented using adjacency list 
-graph = { 
-'A': ['B', 'C'], 
-'B': ['D', 'E'], 
-'C': ['F'], 
-'D': [], 
-'E': ['F'], 
-'F': [] 
-} 
-def bfs(graph, start): 
-visited = set() 
-queue = deque() 
-visited.add(start) 
-queue.append(start) 
-print("BFS Traversal:", end=" ") 
-while queue: 
-vertex = queue.popleft() 
-print(vertex, end=" ") 
-for neighbour in graph[vertex]: 
-if neighbour not in visited: 
-visited.add(neighbour) 
-queue.append(neighbour) 
-# Accept source vertex 
-source = input("Enter source vertex (A-F): ").upper() 
-if source in graph: 
-bfs(graph, source) 
-else: 
-print("Invalid source vertex.") 
-Sample Output 
-Enter source vertex (A-F): A 
-BFS Traversal: A B C D E F
+
+
+from collections import deque
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque()
+
+    visited.add(start)
+    queue.append(start)
+
+    print("BFS Traversal:", end=" ")
+
+    while queue:
+        vertex = queue.popleft()
+        print(vertex, end=" ")
+
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                queue.append(neighbour)
+
+
+source = input("Enter source vertex (A-F): ").upper()
+
+if source in graph:
+    bfs(graph, source)
+else:
+    print("Invalid source vertex.")
