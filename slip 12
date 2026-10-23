@@ -5,15 +5,16 @@ Q1)A.Write a python program to read the car_data.csv dataset and visualize
 the relationship between Car_Age and Selling_Price using a Scatter Plot.                                              
 [10 marks] 
 Program 
+
 import pandas as pd 
 import matplotlib.pyplot as plt 
 # Read the CSV dataset 
-df = pd.read_csv("car_data.csv") 
+df = pd.read_csv("C:/Users/Administrator/Downloads/car_data.csv") 
 # Display the dataset 
 print("Car Dataset:") 
 print(df) 
 # Create scatter plot 
-plt.scatter(df['Car_Age'], df['Selling_Price']) 
+plt.scatter(df['car_age'], df['Selling_Price']) 
 # Add labels and title 
 plt.xlabel("Car Age") 
 plt.ylabel("Selling Price") 
@@ -22,6 +23,8 @@ plt.title("Car Age vs Selling Price")
 plt.grid(True) 
 # Display the graph 
 plt.show() 
+
+
 Sample Output 
 Car Dataset: 
 Car_Age  Selling_Price 
@@ -34,73 +37,18 @@ Car_Age  Selling_Price
 Q2)B.Write a python program to implement Tower of Hanoi using recursion.         
 [20 marks] 
 Program 
-# Function to solve Tower of Hanoi 
-def tower_of_hanoi(n, source, auxiliary, 
-destination): 
-# Base condition 
-if n == 1: 
-print("Move disk 1 from", source, "to", 
-destination) 
-return 
-# Move n-1 disks from source to auxiliary 
-tower_of_hanoi(n - 1, source, destination, 
-auxiliary) 
-# Move the largest disk from source to 
-destination 
-print("Move disk", n, "from", source, "to", 
-destination) 
-# Move n-1 disks from auxiliary to destination 
-tower_of_hanoi(n - 1, auxiliary, source, 
-destination) 
-# Accept number of disks 
+
+def tower_of_hanoi(n, source, auxiliary, destination): 
+ 
+    if n == 1:
+        print("Move disk 1 from", source, "to", destination) 
+        return 
+    
+    tower_of_hanoi(n - 1, source, destination, auxiliary) 
+    print("Move disk", n, "from", source, "to", destination) 
+
+    tower_of_hanoi(n - 1, auxiliary, source, destination) 
+
 n = int(input("Enter number of disks: ")) 
-# Call the function 
+
 tower_of_hanoi(n, 'A', 'B', 'C') 
-Sample Output 
-For n = 3: 
-Enter number of disks: 3 
-Move disk 1 from A to C 
-Move disk 2 from A to B 
-Move disk 1 from C to B 
-Move disk 3 from A to C 
-Move disk 1 from B to A 
-Move disk 2 from B to C 
-Move disk 1 from A to C 
-OR 
-Q2) B.Write a python program to simulate a Vacuum Cleaner Agent. The agent 
-should accept the current location and the cleanliness status of the room as 
-input and decide whether to move to another location, clean the room, or 
-remain in the current location. Display the agent’s action based on the given 
-conditions. 
-Program 
-# Vacuum Cleaner Agent 
-location = input("Enter current location (A/B): 
-").upper() 
-status = input("Enter room status (CLEAN/DIRTY): 
-").upper() 
-if location not in ["A", "B"]: 
-print("Invalid location.") 
-elif status not in ["CLEAN", "DIRTY"]: 
-print("Invalid cleanliness status.") 
-else: 
-print("\nCurrent Location :", location) 
-print("Room Status      :", status) 
-if status == "DIRTY": 
-action = "Clean the room" 
-elif location == "A" and status == "CLEAN": 
-action = "Move to location B" 
-elif location == "B" and status == "CLEAN": 
-action = "Move to location A" 
-print("Agent Action     :", action) 
-Sample Output 1 
-Enter current location (A/B): A 
-Enter room status (CLEAN/DIRTY): DIRTY 
-Current Location : A 
-Room Status      : DIRTY 
-Agent Action     : Clean the room 
-Sample Output 2 
-Enter current location (A/B): A 
-Enter room status (CLEAN/DIRTY): CLEAN 
-Current Location : A 
-Room Status      : CLEAN 
-Agent Action     : Move to location B
