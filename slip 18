@@ -18,18 +18,13 @@ else:
 Sample Output 1 
 Enter a string: madam 
 The given string is a Palindrome. 
-Sample Output 2 
-Enter a string: hello 
-The given string is not a Palindrome. 
+ 
+
 Q2) B.Develop a python program to demonstrate the Perception → Decision → 
 Action cycle by simulating an Intelligent Agent in a simple environment.                                             
 [20 marks] 
 Program 
-# Intelligent Agent: Perception -> Decision -> Action 
- 
-# Simple environment 
-environment = ["Dirty", "Clean", "Dirty", "Clean", 
-"Dirty"] 
+environment = ["Dirty", "Clean", "Dirty", "Clean", "Dirty"] 
  
 print("Initial Environment:") 
 print(environment) 
@@ -40,47 +35,24 @@ print("----------------")
 # Agent moves through each location 
 for i in range(len(environment)): 
  
-    # 1. Perception 
-perception = environment[i] 
-print("\nLocation:", i + 1) 
-print("Perception:", perception) 
-# 2. Decision 
-if perception == "Dirty": 
-decision = "Clean the location" 
-else: 
-decision = "Move to next location" 
-print("Decision:", decision) 
-# 3. Action 
-if perception == "Dirty": 
-environment[i] = "Clean" 
-action = "Location cleaned" 
-else: 
-action = "No cleaning required" 
-print("Action:", action) 
+    perception = environment[i] 
+    print("\nLocation:", i + 1) 
+    print("Perception:", perception) 
+
+    if perception == "Dirty": 
+        decision = "Clean the location" 
+    else: 
+        decision = "Move to next location" 
+
+    print("Decision:", decision) 
+
+    if perception == "Dirty": 
+        environment[i] = "Clean" 
+        action = "Location cleaned" 
+    else: 
+        action = "No cleaning required" 
+    print("Action:", action) 
+
 print("\nFinal Environment:") 
 print(environment) 
-Sample Output 
-Initial Environment: 
-['Dirty', 'Clean', 'Dirty', 'Clean', 'Dirty'] 
-Agent Working: ---------------- 
-Location: 1 
-Perception: Dirty 
-Decision: Clean the location 
-Action: Location cleaned 
-Location: 2 
-Perception: Clean 
-Decision: Move to next location 
-Action: No cleaning required 
-Location: 3 
-Perception: Dirty 
-Decision: Clean the location 
-Action: Location cleaned 
-Location: 4 
-Perception: Clean 
-Decision: Move to next location 
-Action: No cleaning required 
-Location: 5 
-Perception: Dirty 
-Decision: Clean the location 
-Action: Location cleaned 
-Final Environment: 
+
