@@ -1,0 +1,98 @@
+Slip 9 
+ 
+ Q1) A.Write a program to create a DataFrame which contains a person name 
+and age ,Sort a DataFrame in ascending order of Age                                                                          
+[10 marks] 
+Program 
+import pandas as pd 
+ 
+# Create DataFrame 
+data = { 
+    'Person Name': ['Rahul', 'Sneha', 'Amit', 
+'Priya', 'Karan'], 
+    'Age': [25, 20, 30, 22, 27] 
+} 
+ 
+df = pd.DataFrame(data) 
+ 
+print("Original DataFrame:") 
+print(df) 
+ 
+# Sort DataFrame by Age in ascending order 
+sorted_df = df.sort_values(by='Age', ascending=True) 
+ 
+print("\nDataFrame Sorted by Age:") 
+print(sorted_df) 
+Sample Output 
+Original DataFrame: 
+  Person Name  Age 
+0       Rahul   25 
+1       Sneha   20 
+2        Amit   30 
+3       Priya   22 
+4       Karan   27 
+ 
+DataFrame Sorted by Age: 
+  Person Name  Age 
+1       Sneha   20 
+3       Priya   22 
+0       Rahul   25 
+4       Karan   27 
+2        Amit   30 
+ 
+Q2)B.Write a program to implement the Blocks World Problem. Represent the 
+initial and goal states of a set of blocks, perform valid block movements 
+according to the problem constraints and display each intermediate state until 
+the goal configuration is achieved.                                         
+[20 marks] 
+Program 
+# Blocks World Problem 
+def display_state(state): 
+print("State:") 
+for block, position in state.items(): 
+print(block, "->", position) 
+print() 
+# Initial State 
+initial_state = { 
+'A': 'Table', 
+'B': 'A', 
+'C': 'Table' 
+} 
+# Goal State 
+goal_state = { 
+'A': 'Table', 
+'B': 'C', 
+'C': 'Table' 
+} 
+print("Initial State:") 
+display_state(initial_state) 
+# Move B from A to Table 
+print("Move 1: Move B from A to Table") 
+initial_state['B'] = 'Table' 
+display_state(initial_state) 
+# Move B from Table to C 
+print("Move 2: Move B from Table to C") 
+initial_state['B'] = 'C' 
+display_state(initial_state) 
+# Check goal state 
+if initial_state == goal_state: 
+print("Goal State Achieved!") 
+else: 
+print("Goal State Not Achieved.") 
+Sample Output 
+Initial State: 
+State: 
+A -> Table 
+B -> A 
+C -> Table 
+Move 1: Move B from A to Table 
+State: 
+A -> Table 
+B -> Table 
+C -> Table 
+Move 2: Move B from Table to C 
+State: 
+A -> Table 
+B -> C 
+C -> Table 
+Goal State Achieved!
