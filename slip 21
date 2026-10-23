@@ -3,12 +3,12 @@ Q1)A.Write a python program to predict if a student is Eligible to take
 admission (marks ≥ 55) using simple Logistic Classification. Accept student 
 marks from user.                                             [10 marks] 
 Program 
+
 import numpy as np 
 from sklearn.linear_model import LogisticRegression 
  
 # Training data 
-marks = np.array([30, 40, 45, 50, 55, 60, 65, 70, 80, 
-90]).reshape(-1, 1) 
+marks = np.array([30, 40, 45, 50, 55, 60, 65, 70, 80, 90]).reshape(-1, 1) 
  
 # 0 = Not Eligible, 1 = Eligible 
 admission = [0, 0, 0, 0, 1, 1, 1, 1, 1, 1] 
@@ -18,8 +18,7 @@ model = LogisticRegression()
 model.fit(marks, admission) 
  
 # Accept marks from user 
-student_marks = float(input("Enter student's marks: 
-")) 
+student_marks = float(input("Enter student's marks: ")) 
  
 # Predict eligibility 
 prediction = model.predict([[student_marks]]) 
@@ -28,8 +27,9 @@ prediction = model.predict([[student_marks]])
 if prediction[0] == 1: 
     print("Student is Eligible to take admission.") 
 else: 
-print("Student is Not Eligible to take 
-admission.") 
+    print("Student is Not Eligible to take admission.") 
+
+
 Sample Output 
 Enter student's marks: 65 
 Student is Eligible to take admission. 
