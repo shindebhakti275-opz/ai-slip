@@ -2,22 +2,23 @@ Slip 2
 Q1).A.Write a python program to implement Tower of Hanoi using recursion.       
 [10 marks] 
 Program 
-# Tower of Hanoi using Recursion 
-def tower_of_hanoi(n, source, auxiliary, 
-destination): 
-if n == 1: 
-print("Move disk 1 from", source, "to", 
-destination) 
-return 
-tower_of_hanoi(n - 1, source, destination, 
-auxiliary) 
-print("Move disk", n, "from", source, "to", 
-destination) 
-tower_of_hanoi(n - 1, auxiliary, source, 
-destination) 
-# Main program 
+
+def tower_of_hanoi(n, source, auxiliary, destination): 
+ 
+    if n == 1:
+        print("Move disk 1 from", source, "to", destination) 
+        return 
+    
+    tower_of_hanoi(n - 1, source, destination, auxiliary) 
+    print("Move disk", n, "from", source, "to", destination) 
+
+    tower_of_hanoi(n - 1, auxiliary, source, destination) 
+
 n = int(input("Enter number of disks: ")) 
+
 tower_of_hanoi(n, 'A', 'B', 'C') 
+
+
 Sample Output 
 Enter number of disks: 3 
 Move disk 1 from A to C 
@@ -30,18 +31,19 @@ Move disk 1 from A to C
 Q2) B.Write a python program to implement Mini-Max Algorithm.                          
 [20 marks] 
 Program 
-# Mini-Max Algorithm 
+
 def minimax(depth, node_index, is_maximizing, values, 
 height): 
 # If leaf node is reached 
-if depth == height: 
-return values[node_index] 
-if is_maximizing: 
-return max( 
-minimax(depth + 1, node_index * 2, 
-False, values, height), 
-minimax(depth + 1, node_index * 2 + 1, 
-                    False, values, height) 
+    if depth == height: 
+        return values[node_index] 
+    
+    if is_maximizing: 
+        return max( 
+            minimax(depth + 1, node_index * 2, 
+                False, values, height), 
+            minimax(depth + 1, node_index * 2 + 1, 
+                False, values, height) 
         ) 
  
     else: 
@@ -61,8 +63,5 @@ height = 3
 result = minimax(0, 0, True, values, height) 
  
 print("Leaf Node Values:", values) 
-print("Optimal Value:", result) 
-Sample Output 
-Leaf Node Values: [3, 5, 2, 9, 12, 5, 23, 23] 
-Optimal Value: 12 
+print("Optimal Value:", result)
  
