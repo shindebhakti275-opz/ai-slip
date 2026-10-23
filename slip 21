@@ -42,47 +42,25 @@ location as input and determine the next action required to move toward the
 goal. Display the current state, goal state, and selected action. 
                                                                                                                                                             
 [20 marks] 
- 
-Program:  
-A → B → C → D → E 
-# Goal-Based Agent for a simple navigation problem 
- 
-# Define the navigation path 
+program:
+
 path = ["A", "B", "C", "D", "E"] 
  
-# Accept input from user 
-current_location = input("Enter current location (A
-E): ").upper() 
-goal_location = input("Enter goal location (A-E): 
-").upper() 
+current_location = input("Enter current location (AE): ").upper() 
+goal_location = input("Enter goal location (A-E): ").upper() 
  
-# Display current state and goal state 
 print("\nCurrent State :", current_location) 
 print("Goal State    :", goal_location) 
  
-# Find positions of current and goal locations 
 current_position = path.index(current_location) 
 goal_position = path.index(goal_location) 
-# Determine the next action 
 if current_position < goal_position: 
-next_location = path[current_position + 1] 
-action = "Move Forward to " + next_location 
+    next_location = path[current_position + 1] 
+    action = "Move Forward to " + next_location 
 elif current_position > goal_position: 
-next_location = path[current_position - 1] 
-action = "Move Backward to " + next_location 
+    next_location = path[current_position - 1] 
+    action = "Move Backward to " + next_location 
 else: 
-action = "Goal Reached" 
-# Display selected action 
+    action = "Goal Reached" 
 print("Selected Action:", action) 
-Sample Output 1 
-Enter current location (A-E): A 
-Enter goal location (A-E): D 
-Current State : A 
-Goal State    : D 
-Selected Action: Move Forward to B 
-Sample Output 2 
-Enter current location (A-E): D 
-Enter goal location (A-E): B 
-Current State : D 
-Goal State    : B 
-Selected Action: Move Backward to C
+
