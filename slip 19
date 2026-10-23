@@ -1,0 +1,58 @@
+Q1)A.Write a program to create a DataFrame which contains a person name 
+and age ,Sort a DataFrame in ascending order of Age                                                                          
+[10 marks] 
+Program 
+import pandas as pd 
+# Create data 
+data = { 
+'Person Name': ['Rahul', 'Sneha', 'Amit', 
+'Priya', 'Karan'], 
+'Age': [25, 20, 30, 22, 27] 
+} 
+# Create DataFrame 
+df = pd.DataFrame(data) 
+print("Original DataFrame:") 
+print(df) 
+# Sort DataFrame by Age in ascending order 
+sorted_df = df.sort_values(by='Age', ascending=True) 
+ 
+print("\nDataFrame Sorted by Age:") 
+print(sorted_df) 
+Sample Output 
+Original DataFrame: 
+  Person Name  Age 
+0       Rahul   25 
+1       Sneha   20 
+2        Amit   30 
+3       Priya   22 
+4       Karan   27 
+ 
+DataFrame Sorted by Age: 
+  Person Name  Age 
+1       Sneha   20 
+3       Priya   22 
+0       Rahul   25 
+4       Karan   27 
+2        Amit   30 
+Q2)B.Write a python program to load the Diabetic in built dataset, convert it 
+into a Data frames and display the first 7 rows and the shape of the dataset.                                                     
+[20 marks] 
+Program 
+import pandas as pd 
+from sklearn.datasets import load_diabetes 
+ 
+# Load the built-in Diabetes dataset 
+diabetes = load_diabetes() 
+ 
+# Convert dataset into DataFrame 
+df = pd.DataFrame( 
+    diabetes.data, 
+    columns=diabetes.feature_names 
+) 
+ 
+# Display first 7 rows 
+print("First 7 Rows of Diabetes Dataset:") 
+print(df.head(7)) 
+# Display shape of dataset 
+print("\nShape of Dataset:") 
+print(df.shape) 
