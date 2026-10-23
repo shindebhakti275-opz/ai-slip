@@ -4,6 +4,7 @@ from a CSV file to predict Sales based on Advertising Budget (TV, Radio,
 Newspaper).                            
 [10 marks] 
 Program 
+
 import pandas as pd 
 from sklearn.linear_model import LinearRegression 
 # Load data from CSV file 
@@ -31,6 +32,8 @@ columns=['TV', 'Radio', 'Newspaper']
 # Predict Sales 
 prediction = model.predict(new_data) 
 print("\nPredicted Sales:", prediction[0]) 
+
+
 Sample advertising.csv 
 Save the CSV file in the same folder as the Python program. 
 TV,Radio,Newspaper,Sales 
@@ -54,6 +57,7 @@ Q2) B.Write a program to for DataFrame of customer with Salary and
 Experience: If Experience < 5 years, increase salary by 11.5%, else increase by 
 6.5%. and display updated DataFrame. 
 Python program using Pandas DataFrame: 
+
 import pandas as pd 
 # Create DataFrame 
 data = { 
@@ -72,6 +76,7 @@ df.loc[df["Experience"] >= 5, "Salary"] *= 1.065
 # Display updated DataFrame 
 print("\nUpdated DataFrame:") 
 print(df) 
+
 Output 
 Original DataFrame: 
 Customer  Salary  Experience 
