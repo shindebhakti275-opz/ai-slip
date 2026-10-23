@@ -3,10 +3,12 @@ Q1) A  .Write a python program to show proper indentation using if statement.
 [10 marks] 
 Program : 
 num = int(input("Enter a number: ")) 
-if num > 0: 
-print("The number is positive.") 
-print("This statement is inside the if block.") 
+if num > 0:
+    print("The number is positive.") 
+    print("This statement is inside the if block.") 
 print("Program execution completed.") 
+
+
 Sample Output 
 Enter a number: 10 
 The number is positive. 
@@ -14,6 +16,7 @@ This statement is inside the if block.
 Program execution completed. 
 Q2) B .Write a python program to implement Water Jug Problem.   [20 marks] 
 Programme : 
+
 from collections import deque 
 def water_jug_problem(capacity1, capacity2, target): 
 visited = set() 
@@ -78,17 +81,4 @@ print("Water Jug Problem")
 print("Jug 1 Capacity:", capacity1, "litres") 
 print("Jug 2 Capacity:", capacity2, "litres") 
 print("Target:", target, "litres") 
-water_jug_problem(capacity1, capacity2, target) 
-Sample Output 
-Water Jug Problem 
-Jug 1 Capacity: 4 litres 
-Jug 2 Capacity: 3 litres 
-Target: 2 litres 
-Solution Path: 
-Fill Jug 2 
-Pour Jug 2 -> Jug 1 
-Fill Jug 2 
-Pour Jug 2 -> Jug 1 
-Empty Jug 1 
-Pour Jug 2 -> Jug 1 
-Goal State: (2, 3)
+water_jug_problem(capacity1, capacity2, target)
