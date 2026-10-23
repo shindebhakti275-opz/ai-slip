@@ -1,0 +1,110 @@
+Slip 4 
+Q1)A.Write a python program to predict if a Person is Eligible to Vote (Age ≥ 
+18) using simple Logistic Classification. Accept person age from user.                                                       
+[10 marks] 
+Program 
+# Voting Eligibility using Logistic Regression 
+import pandas as pd 
+from sklearn.linear_model import LogisticRegression 
+# Create training data 
+data = { 
+'Age': [10, 12, 15, 16, 17, 18, 19, 21, 25, 30, 
+40, 50], 
+'Eligible': [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1] 
+} 
+df = pd.DataFrame(data) 
+print("Training Data:") 
+print(df) 
+# Input feature 
+X = df[['Age']] 
+# Target variable 
+y = df['Eligible'] 
+# Create Logistic Regression model 
+model = LogisticRegression() 
+# Train the model 
+model.fit(X, y) 
+# Accept age from user 
+age = int(input("\nEnter person's age: ")) 
+# Predict eligibility 
+prediction = model.predict([[age]]) 
+# Display result 
+if prediction[0] == 1: 
+print("Person is Eligible to Vote.") 
+else: 
+print("Person is Not Eligible to Vote.") 
+Sample Output 1 
+Training Data: 
+Age  Eligible 
+0    10         0 
+1    12         0 
+2    15         0 
+3    16         0 
+4    17         0 
+5    18         1 
+6    19         1 
+7    21         1 
+8    25         1 
+9    30         1 
+10   40         1 
+11   50         1 
+Enter person's age: 25 
+Person is Eligible to Vote. 
+Sample Output 2 
+Enter person's age: 16 
+Person is Not Eligible to Vote. 
+Q2) B.Write a python program to Implement Alpha-Beta Pruning .                                    
+[20 marks] 
+Program 
+# Alpha-Beta Pruning Algorithm 
+def alpha_beta(depth, node, alpha, beta, 
+maximizing_player): 
+# Leaf node 
+if depth == 3: 
+return values[node] 
+if maximizing_player: 
+best = -999 
+for i in range(2): 
+value = alpha_beta( 
+depth + 1, 
+node * 2 + i, 
+alpha, 
+beta, 
+False 
+) 
+best = max(best, value) 
+alpha = max(alpha, best) 
+# Beta cut-off 
+if beta <= alpha: 
+print("Beta Pruning at node:", node) 
+break 
+return best 
+else: 
+best = 999 
+for i in range(2): 
+value = alpha_beta( 
+depth + 1, 
+node * 2 + i, 
+alpha, 
+beta, 
+True 
+) 
+best = min(best, value) 
+beta = min(beta, best) 
+# Alpha cut-off 
+if beta <= alpha: 
+print("Alpha Pruning at node:", node) 
+break 
+return best 
+# Leaf node values 
+values = [3, 5, 6, 9, 1, 2, 0, -1] 
+# Initial values 
+alpha = -999 
+beta = 999 
+# Call Alpha-Beta algorithm 
+result = alpha_beta(0, 0, alpha, beta, True) 
+print("\nLeaf Node Values:", values) 
+print("Optimal Value:", result) 
+Sample Output 
+Beta Pruning at node: 2 
+Leaf Node Values: [3, 5, 6, 9, 1, 2, 0, -1] 
+Optimal Value: 5 
