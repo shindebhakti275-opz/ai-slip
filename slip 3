@@ -2,16 +2,18 @@ Slip 3
 Q1)A.Write a python program to simulate a simple reflex agent for fan control.         
 [10 marks] 
 Program 
-# Simple Reflex Agent for Fan Control 
+
 temperature = int(input("Enter room temperature: ")) 
 if temperature >= 30: 
-action = "Fan ON" 
+    action = "Fan ON" 
 elif temperature >= 20: 
-action = "Fan at LOW speed" 
+    action = "Fan at LOW speed" 
 else: 
-action = "Fan OFF" 
+    action = "Fan OFF" 
+
 print("Temperature:", temperature, "°C") 
-print("Agent Action:", action) 
+print("Agent Action:", action)
+
 Sample Output 1 
 Enter room temperature: 35 
 Temperature: 35 °C 
@@ -26,83 +28,54 @@ Exercise Hours per Week Accept the input from user and predict for multiple
 people                                                                              
 [20 marks] 
 Program 
-# Fitness Predictor using Random Forest 
-Classification 
-import pandas as pd 
-from sklearn.ensemble import RandomForestClassifier 
-# Create training dataset 
-data = { 
-'Age': [18, 20, 22, 25, 28, 30, 35, 40, 45, 50], 
-'Exercise_Hours': [6, 7, 5, 6, 4, 5, 3, 2, 2, 1], 
-'Fitness': ['FIT', 'FIT', 'FIT', 'FIT', 'FIT', 
-'FIT', 'UNFIT', 'UNFIT', 'UNFIT', 
-'UNFIT'] 
-} 
-df = pd.DataFrame(data) 
-print("Training Data:") 
-print(df) 
-# Input features 
-X = df[['Age', 'Exercise_Hours']] 
-# Target variable 
-Y = df['Fitness'] 
-# Create Random Forest Classifier 
-model = RandomForestClassifier(n_estimators=100, 
-random_state=42) 
-# Train the model 
-model.fit(X, Y) 
-# Accept number of people 
-n = int(input("\nEnter number of people: ")) 
-# Accept data for multiple people 
-people = [] 
-for i in range(n): 
-print("\nPerson", i + 1) 
-age = int(input("Enter Age: ")) 
-exercise = float(input("Enter Exercise Hours per 
-Week: ")) 
-people.append([age, exercise]) 
-# Create DataFrame for input data 
-input_df = pd.DataFrame( 
-people, 
-columns=['Age', 'Exercise_Hours'] 
-) 
-# Predict fitness 
-predictions = model.predict(input_df) 
-# Display results 
-print("\nFitness Prediction:") 
-print("------------------------------") 
-for i in range(n): 
-print( 
-"Person", i + 1, 
-"Age:", input_df.iloc[i]['Age'], 
-"Exercise Hours:", 
-input_df.iloc[i]['Exercise_Hours'], 
-"Fitness:", predictions[i] 
-) 
-Sample Output 
-Training Data: 
-Age  Exercise_Hours Fitness 
-0   18               6     FIT 
-1   20               7     FIT 
-2   22               5     
-FIT 
-3   25               6     FIT 
-4   28               4     FIT 
-5   30               5     FIT 
-6   35               3   UNFIT 
-7   40               2   UNFIT 
-8   45               2   UNFIT 
-9   50               1   UNFIT 
-Enter number of people: 3 
-Person 1 
-Enter Age: 21 
-Enter Exercise Hours per Week: 6 
-Person 2 
-Enter Age: 38 
-Enter Exercise Hours per Week: 2 
-Person 3 
-Enter Age: 27 
-Enter Exercise Hours per Week: 5 
-Fitness Prediction: ------------------------------ 
-Person 1 Age: 21.0 Exercise Hours: 6.0 Fitness: FIT 
-Person 2 Age: 38.0 Exercise Hours: 2.0 Fitness: UNFIT 
-Person 3 Age: 27.0 Exercise Hours: 5.0 Fitness: FIT 
+
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
+data = {
+    'Age': [18, 20, 22, 25, 28, 30, 35, 40, 45, 50],
+    'Exercise_Hours': [6, 7, 5, 6, 4, 5, 3, 2, 2, 1],
+    'Fitness': ['FIT', 'FIT', 'FIT', 'FIT', 'FIT',
+                'FIT', 'UNFIT', 'UNFIT', 'UNFIT', 'UNFIT']
+}
+
+df = pd.DataFrame(data)
+
+print("Training Data:")
+print(df)
+
+X = df[['Age', 'Exercise_Hours']]
+Y = df['Fitness']
+
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X, Y)
+
+n = int(input("\nEnter number of people: "))
+
+people = []
+
+for i in range(n):
+    print("\nPerson", i + 1)
+    age = int(input("Enter Age: "))
+    exercise = float(input("Enter Exercise Hours per Week: "))
+    people.append([age, exercise])
+
+input_df = pd.DataFrame(
+    people,
+    columns=['Age', 'Exercise_Hours']
+)
+
+predictions = model.predict(input_df)
+
+print("\nFitness Prediction:")
+print("------------------------------")
+
+for i in range(n):
+    print(
+        "Person", i + 1,
+        "Age:", input_df.iloc[i]['Age'],
+        "Exercise Hours:", input_df.iloc[i]['Exercise_Hours'],
+        "Fitness:", predictions[i]
+    )
+
+
