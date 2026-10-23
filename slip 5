@@ -4,42 +4,42 @@ Initialize the monkey's position, perform the necessary actions to reach the
 banana, and use conditional statements to determine whether the goal state 
 has been achieved.                                                  
 Program 
-# Monkey Banana Problem 
-# Initial positions 
-monkey_position = "door" 
-box_position = "window" 
-banana_position = "ceiling" 
-print("Initial State:") 
-[10 marks] 
-print("Monkey Position :", monkey_position) 
-print("Box Position    :", box_position) 
-print("Banana Position :", banana_position) 
-# Step 1: Monkey moves to the box 
-if monkey_position != box_position: 
-print("\nMonkey moves from", monkey_position, 
-"to", box_position) 
-monkey_position = box_position 
-# Step 2: Monkey pushes the box under the banana 
-if monkey_position == box_position: 
-print("Monkey pushes the box under the banana") 
-box_position = banana_position 
-# Step 3: Monkey climbs the box 
-if monkey_position == box_position: 
-print("Monkey climbs on the box") 
-monkey_position = "on_box" 
-# Step 4: Monkey takes the banana 
-if monkey_position == "on_box" and box_position == 
-banana_position: 
-print("Monkey takes the banana") 
-banana_obtained = True 
-else: 
-banana_obtained = False 
-# Check goal state 
-if banana_obtained: 
-print("\nGoal State Achieved!") 
-print("Monkey has obtained the banana.") 
-else: 
-print("\nGoal State Not Achieved.") 
+
+monkey_position = "door"
+box_position = "window"
+banana_position = "ceiling"
+
+print("Initial State:")
+print("Monkey Position :", monkey_position)
+print("Box Position    :", box_position)
+print("Banana Position :", banana_position)
+
+if monkey_position != box_position:
+    print("\nMonkey moves from", monkey_position, "to", box_position)
+    monkey_position = box_position
+
+if monkey_position == box_position:
+    print("Monkey pushes the box under the banana")
+    box_position = banana_position
+
+if monkey_position == box_position:
+    print("Monkey climbs on the box")
+    monkey_position = "on_box"
+
+if monkey_position == "on_box" and box_position == banana_position:
+    print("Monkey takes the banana")
+    banana_obtained = True
+else:
+    banana_obtained = False
+
+if banana_obtained:
+    print("\nGoal State Achieved!")
+    print("Monkey has obtained the banana.")
+else:
+    print("\nGoal State Not Achieved.")
+
+
+
 Sample Output 
 Initial State: 
 Monkey Position : door 
@@ -56,54 +56,48 @@ views using relevant video attributes. Visualize the relationship between the
 predictor and target variable using a scatter plot and regression line.                                            
 [20 marks] 
 Program 
-# Linear Regression on YouTube Video Dataset 
-import pandas as pd 
-import matplotlib.pyplot as plt 
-from sklearn.linear_model import LinearRegression 
-# Create YouTube dataset 
-data = { 
-'Likes': [100, 250, 400, 550, 700, 900, 1100, 
-1300, 1500, 1800], 
-'Views': [2000, 4500, 7000, 9500, 12000, 15000, 
-19000, 22000, 25000, 30000] 
-} 
-df = pd.DataFrame(data) 
-print("YouTube Video Dataset:") 
-print(df) 
-# Predictor variable 
-X = df[['Likes']] 
-# Target variable 
-Y = df['Views'] 
-# Create Linear Regression model 
-model = LinearRegression() 
-# Train the model 
-model.fit(X, Y) 
-# Predict views 
-likes = float(input("\nEnter number of likes: ")) 
-prediction = model.predict([[likes]]) 
-print("Predicted Views:", prediction[0]) 
- 
-# Plot scatter plot 
-plt.scatter(df['Likes'], df['Views'], label="Actual 
-Data") 
- 
-# Regression line 
-plt.plot( 
-    df['Likes'], 
-    model.predict(X), 
-    label="Regression Line" 
-) 
- 
-# Labels and title 
-plt.xlabel("Number of Likes") 
-plt.ylabel("Number of Views") 
-plt.title("YouTube Likes vs Views") 
- 
-# Legend 
-plt.legend() 
- 
-# Display graph 
-plt.show() 
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+data = {
+    'Likes': [100, 250, 400, 550, 700, 900, 1100, 1300, 1500, 1800],
+    'Views': [2000, 4500, 7000, 9500, 12000, 15000, 19000, 22000, 25000, 30000]
+}
+
+df = pd.DataFrame(data)
+
+print("YouTube Video Dataset:")
+print(df)
+
+X = df[['Likes']]
+Y = df['Views']
+
+model = LinearRegression()
+model.fit(X, Y)
+
+likes = float(input("\nEnter number of likes: "))
+prediction = model.predict(pd.DataFrame({'Likes': [likes]}))
+
+print("Predicted Views:", prediction[0])
+
+plt.scatter(df['Likes'], df['Views'], label="Actual Data")
+
+plt.plot(
+    df['Likes'],
+    model.predict(X),
+    label="Regression Line"
+)
+
+plt.xlabel("Number of Likes")
+plt.ylabel("Number of Views")
+plt.title("YouTube Likes vs Views")
+
+plt.legend()
+plt.show()
+
 Sample Output 
 YouTube Video Dataset: 
    Likes  Views 
